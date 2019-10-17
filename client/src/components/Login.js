@@ -5,7 +5,7 @@ import { UserForm } from "./common/userform"
 export const Login = () => {
 
     const submitFunction = (email, password) => {
-        axios.post('http://localhost:3000/api/login')
+        axios.post('http://localhost:3000/auth/login', {user: {email: email, password: password}})
     }
 
     return (

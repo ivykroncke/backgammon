@@ -6,6 +6,7 @@ import { Input } from "./input";
 export const UserForm = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
 
   return (
     <div>
@@ -13,8 +14,10 @@ export const UserForm = (props) => {
       <Input value={email} onChange={e => setEmail(e.target.value)} />
       <div>Password</div>
       <Input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      <div>Confirm Password</div>
+      <Input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
       <div>
-      <Button text="Submit" onClick={() => props.submitFunction(email, password)} />
+      <Button text="Submit" onClick={() => props.submitFunction(email, password, confirmPassword)} />
       </div>
     </div>
   );
