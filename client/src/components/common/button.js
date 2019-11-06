@@ -4,7 +4,14 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
   color: ${props => props.textColor};
-  background-color: ${props => props.backgroundColor};
+  background-color: ${props => {
+    switch (props.disabled) {
+      case true:
+        return "gray";
+      case false:
+        return props.backgroundColor;
+    }
+  }};
   height: ${props => {
     switch (props.size) {
       case "small":
@@ -17,7 +24,9 @@ const StyledButton = styled.button`
   }};
 `;
 
-export const Button = props => <StyledButton {...props}>{props.text}</StyledButton>;
+export const Button = props => (
+  <StyledButton {...props}>{props.text}</StyledButton>
+);
 
 Button.defaultProps = {
   backgroundColor: "blue",
