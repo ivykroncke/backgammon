@@ -19,6 +19,10 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def current_user
+    @current_user
+  end
+
   private
 
    def allow_profiler_in_envs
