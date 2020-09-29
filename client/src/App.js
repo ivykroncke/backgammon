@@ -5,6 +5,7 @@ import { Login } from './components/Login'
 import { Signup } from './components/Signup';
 import { Games } from './components/Games';
 import { Nav } from './components/Nav';
+import { Game } from './components/Game';
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
       <Router>
         <Route path="/login" render={(props)=> <Login token={token} {...props}/> } />
         <Route path="/signup" render={(props)=> <Signup token={token} {...props}/> } />
-        <Route path="/games" render={(props)=> <Games token={token} {...props}/> } />
+        <Route exact path="/games" render={(props)=> <Games token={token} {...props}/> } />
+        <Route exact path="/games/:id" render={(props)=> <Game {...props} /> } />
       </Router>
 
     </div>
